@@ -10,6 +10,7 @@ This **Genomic Variant Database Querier** stores and manages:
 
 - Genes
 - Genetic variants (mutations)
+- Genetic variants (mutations)
 - Patient tissue samples
 - Many-to-many relationships between samples and variants
 
@@ -22,7 +23,7 @@ This project helped me master:
 - Python application integration with SQLite
 - Realistic bioinformatics data modeling
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://www.youtube.com/watch?v=rbqTpvIybEE)
 
 ---
 
