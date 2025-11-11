@@ -156,4 +156,14 @@ def link_sample_variant(conn, sample_id, variant_id, allele_frequency):
         conn.commit()
         print(f"Linked Sample {sample_id} to Variant {variant_id} (AF: {allele_frequency})")
     except sqlite3.Error as e:
-        print(f"Error linking sample and variant: {e}")                    
+        print(f"Error linking sample and variant: {e}") 
+def update_variant_significance(conn, variant_id, new_significance):
+    """UPDATE the clinical significance of a variant."""
+    try:
+        cursor = conn.cursor()
+        sql = "UPDATE variants SET clinical_significance = ? WHERE variant_id = ?"
+        cursor.execute(sql, (new_significance, variant_id))
+        conn.commit()
+        print(f"Updated Variant {variant_id} significance to: {new_significance}")
+    except sqlite3.Error as e:
+        print(f"Error updating variant: {e}")                   
