@@ -167,3 +167,13 @@ def update_variant_significance(conn, variant_id, new_significance):
         print(f"Updated Variant {variant_id} significance to: {new_significance}")
     except sqlite3.Error as e:
         print(f"Error updating variant: {e}")                   
+def delete_sample(conn, sample_id):
+    """DELETE a sample and its associated variant links."""
+    try:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM sample_variants WHERE sample_id = ?", (sample_id,))
+        cursor.execute("DELETE FROM samples WHERE sample_id = ?", (sample_id,))
+        conn.commit()
+        print(f"Deleted Sample {sample_id} and its associations")
+    except sqlite3.Error as e:
+        print(f"Error deleting sample: {e}")
